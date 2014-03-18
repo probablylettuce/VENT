@@ -9,13 +9,15 @@ from flask.ext.mongoengine import MongoEngine
 
 
 app = Flask(__name__) # create our flask app
-app.config['CSRF_ENABLED'] = False
+app.config['CSRF_ENABLED'] = True
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+
 
 
 
 # --------- Database Connection ---------
 # MongoDB connection to MongoLab's database
-app.config['MONGODB_SETTINGS'] = {'HOST':os.environ.get('MONGOLAB_URI'),'DB': 'ventnow'}
+app.config['MONGODB_SETTINGS'] = {'HOST':os.environ.get('MONGOLAB_URI'),'DB': 'venthere'}
 app.logger.debug("Connecting to MongoLabs")
 db = MongoEngine(app) # connect MongoEngine with Flask App
 
@@ -50,9 +52,9 @@ def addvent():
 	
 		# get form data - create new idea
 		idea = models.Idea()
-		# idea.creator = request.form.get('creator','anonymous')
+		
 		idea.title = request.form.get('title','no title')
-		# idea.slug = slugify(idea.title + " " + idea.creator)
+		
 		idea.idea = request.form.get('idea','')
 		idea.categories = request.form.getlist('categories') # getlist will pull multiple items 'categories' into a list
 		
@@ -102,7 +104,7 @@ def by_category(cat_name):
 	# prepare data for template
 	templateData = {
 		'current_category' : {
-			'slug' : cat_name,
+			
 			'name' : cat_name.replace('_',' ')
 		},
 		'ideas' : ideas,
@@ -113,12 +115,12 @@ def by_category(cat_name):
 	return render_template('category_listing.html', **templateData)
 
 
-@app.route("/ideas/<idea_slug>")
-def idea_display(idea_slug):
+@app.route("/ideas/<idea_id>")
+def idea_display(idea_id):
 
-	# get idea by idea_slug
+	# get idea by idea_id
 	try:
-		ideasList = models.Idea.objects(slug=idea_slug)
+		ideasList = models.Idea.objects(id=idea_id)
 	except:
 		abort(404)
 
@@ -217,7 +219,7 @@ def idea_comment(idea_id):
 	# save it
 	idea.save()
 
-	return redirect('/ideas/%s' % idea.slug)
+	return redirect('/ideas/%s' % idea.id)
 
 from flask import jsonify
 

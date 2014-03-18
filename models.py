@@ -6,15 +6,15 @@ from datetime import datetime
 import logging
 
 class Comment(EmbeddedDocument):
-	# name = StringField()
+	
 	comment = StringField()
 	timestamp = DateTimeField(default=datetime.now())
 	
 class Idea(Document):
 
-	# creator = StringField(max_length=120, required=True, verbose_name="First name")
+	
 	title = StringField(max_length=50, required=True)
-	# slug = StringField()
+	
 	idea = StringField(required=True, verbose_name="VENT HERE")
 
 	# Category is a list of Strings
