@@ -25,7 +25,7 @@ db = MongoEngine(app) # connect MongoEngine with Flask App
 import models
 
 # hardcoded categories for the checkboxes on the form
-categories = ['larry', 'moe', 'curly']
+categories = ['PEOPLE', 'NYC', 'THINGS', 'SHITS']
 
 # --------- Routes ----------
 # this is our main pagex
@@ -50,13 +50,15 @@ def addvent():
 	# if form was submitted and it is valid...
 	if request.method == "POST" and idea_form.validate():
 	
+		# if request.form['submit'] =="Test":
 		# get form data - create new idea
 		idea = models.Idea()
 		
 		idea.title = request.form.get('title','no title')
 		
 		idea.idea = request.form.get('idea','')
-		idea.categories = request.form.getlist('categories') # getlist will pull multiple items 'categories' into a list
+		idea.categories = request.form.get('categories')
+		
 		
 		idea.save() # save it
 
@@ -147,7 +149,7 @@ def idea_edit(idea_id):
 		if ideaForm.validate():
 			updateData = {
 				'set__title' : request.form.get('title'),
-				'set__creator' : request.form.get('creator'),
+				# 'set__creator' : request.form.get('creator'),
 				'set__idea' : request.form.get('idea'),
 				'set__categories' : request.form.getlist('categories')
 			}
@@ -298,7 +300,7 @@ def ideaToDict(idea):
 	# create a dictionary
 	tmpIdea = {
 		'id' : str(idea.id),
-		'creator' : idea.creator,
+		# 'creator' : idea.creator,
 		'title' : idea.title,
 		'idea' : idea.idea,
 		'timestamp' : str( idea.timestamp )

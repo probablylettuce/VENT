@@ -7,7 +7,7 @@
 
 	<!-- left column -->
 	<div class="col-md-12">
-		<h2>IDEA: {{ idea.title }}</h2>
+		<h2>The VENT: {{ idea.title }}</h2>
 		<p>
 	
 			
@@ -32,12 +32,15 @@
 		<div class="row">
 
 			<!-- DISPLAY COMMENTS -->
-			<div class="col-md-5">
+			<div class="col-md-7">
 				{% for comment in idea.comments %}
 				<div class="comment">
 					
-					<a href="http://{{ comment.comment }}">{{ comment.comment }}</a>
+					÷
 					<!-- PUT iFRAME HERE -->
+					<iframe src="http://{{ comment.comment }}" sandbox="" width="600" height="200" scrolling="no">
+  <p>Your browser does not support iframes.</p>
+</iframe>
 					<p><small>{{ comment.timestamp.strftime("%a %m/%d %I:%M%p ") }}</small></p>
 				</div>
 				
@@ -47,12 +50,16 @@
 			<!-- ADD COMMENT -->
 			<div class="col-md-5">
 			<!-- PUT JS URL RULES HERE -->
+
 				<form method="POST" action="/ideas/{{ idea.id }}/comment">
 					<!-- <label for="name">First Name</label>
 					<input type="text" id="name" name="name"> -->
 					<br>
-					<label for="comment">Paste url here</label>
-					<textarea cols="50" rows="6" id="comment" name="comment"></textarea>
+					<!-- <input type="text" name="fname" placeholder="First name"><br>
+  
+  
+					<label for="comment">Paste url here</label> -->
+					<textarea cols="60" rows="1" id="comment" name="comment" placeholder="PASTE URL HERE. Other comments will not show up."></textarea>
 					
 					<label>
 					<button type="submit" class="btn btn-success">Comment</button>

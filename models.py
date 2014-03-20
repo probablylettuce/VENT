@@ -18,7 +18,8 @@ class Idea(Document):
 	idea = StringField(required=True, verbose_name="VENT HERE")
 
 	# Category is a list of Strings
-	categories = ListField(StringField(max_length=30))
+	categories = StringField(max_length=50)
+	
 
 	# Comments is a list of Document type 'Comments' defined above
 	comments = ListField( EmbeddedDocumentField(Comment) )

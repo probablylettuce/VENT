@@ -9,11 +9,11 @@
 	<div class="col-md-6">
 
 		{% with messages = get_flashed_messages() %}
-		  {% if messages %}
-		    {% for message in messages %}
-		    	<div class="alert alert-success">{{ message }}</div>
-		    {% endfor %}
-		  {% endif %}
+		{% if messages %}
+		{% for message in messages %}
+		<div class="alert alert-success">{{ message }}</div>
+		{% endfor %}
+		{% endif %}
 		{% endwith %}
 
 		<form method="POST" role="form">
@@ -22,22 +22,22 @@
 			<legend><h3>Share Your Ideas</h3></legend>
 
 			{% if form.errors %}
-			    <ul class="errors">
-			        {% for field_name, field_errors in form.errors|dictsort if field_errors %}
-			            {% for error in field_errors %}
-			                <li>{{ form[field_name].label }}: {{ error }}</li>
-			            {% endfor %}
-			        {% endfor %}
-			    </ul>
+			<ul class="errors">
+				{% for field_name, field_errors in form.errors|dictsort if field_errors %}
+				{% for error in field_errors %}
+				<li>{{ form[field_name].label }}: {{ error }}</li>
+				{% endfor %}
+				{% endfor %}
+			</ul>
 			{% endif %}
 
 			<div class="form-group">
 				{{ form.creator.label() }}
 				{{ form.creator(class='form-control', type='text') }}
-				
-				<!--
-				<label for="creator">First Name</label>
-				<input type="text" id="creator" name="creator" class="form-control" value=""> 
+
+					<!--
+					<label for="creator">First Name</label>
+					<input type="text" id="creator" name="creator" class="form-control" value=""> 
 				-->
 			</div>
 
@@ -47,29 +47,39 @@
 				<!-- 
 				<label for="title">Project Title</label>
 				<input type="text" id="title" name="title" class="form-control">
-				-->
-			</div>
-			
-			<div class="form-group">
-				{{ form.idea.label() }}
-				{{ form.idea(class='form-control', type='textarea') }}
+			-->
+		</div>
+
+		<div class="form-group">
+			{{ form.idea.label() }}
+			{{ form.idea(class='form-control', type='textarea') }}
 				<!-- <label for="idea">Idea description</label>
 				<textarea name="idea" id="idea" class="form-control"></textarea>
-				-->
-			</div>
+			-->
+		</div>
 
-			<label>Category</label>
-			<p class="help-block">Select as many as you need.</p>
-			{# comment - loop through categories and create checkboxes #}
-			{% for c in categories|sort %}
-			<div class="checkbox">
+		<label>Category</label>
+		<p class="help-block">Select as many as you need.</p>
+		{# comment - loop through categories and create checkboxes #}
+		{% for c in categories|sort %}
+
+
+			<!-- <div class="checkbox">
 				<label>
 					<input type="checkbox" \
 						name="categories" 
 						value="{{ c|replace(" ","_") }}" {% if c|replace(" ","_") in form.categories.data %}checked=checked{% endif %}
 					> {{ c|title }}
 				</label>
-			</div>
+			</div> -->
+
+			<select class=".control-group.info" >
+
+			<option >People</option>
+				<option >NYC</option>
+				<option >The Way Things Are</option>
+				<option >Shit's Fucked Up and Bullshit</option>
+			</select>
 			{% endfor %}
 
 			<input type='hidden' value='{{ idea_id }}' name='idea_id'>

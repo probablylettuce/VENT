@@ -83,16 +83,16 @@
 
 			<label>Category</label>
 			<p class="help-block">Select as many as you need.</p>
-			{# comment - loop through categories and create checkboxes #}
+			<!-- {# comment - loop through categories and create checkboxes #} -->
 			{% for c in categories|sort %}
-			<div class="checkbox">
+			<!-- <div class="checkbox">
 				<label>
 					<input type="checkbox" \
 						name="categories" 
 						value="{{ c|replace(" ","_") }}" {% if c|replace(" ","_") in form.categories.data %}checked=checked{% endif %}
 					> {{ c|title }}
 				</label>
-			</div>
+			</div> -->
 			{% endfor %}
 
 

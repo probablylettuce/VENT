@@ -3,44 +3,45 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="ITP DWD Example Site using templates">
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="A PLACE WHERE NYERS CAN AIR OUT THEIR THOUGHTS">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
-        <!-- Get Font from Google http://www.google.com/webfonts -->
-        <link href='http://fonts.googleapis.com/css?family=Peralta' rel='stylesheet' type='text/css'>
+    <!-- Get Font from Google http://www.google.com/webfonts -->
+    <link href='http://fonts.googleapis.com/css?family=Peralta' rel='stylesheet' type='text/css'>
 
-        {% block styles %}{% endblock %}
+    {% block styles %}{% endblock %}
 
-    </head>
-    <body>
-         <!-- put nav menu here -->
+</head>
+<body>
+   <!-- put nav menu here -->
 
-        <div class="container">
+   <div class="container">
 
-            <h1>ITP IDEAS</h1>
-            <hr>
+   <font size=+1 ><h1>VENT NY</h1></font>
+    <hr>
 
-            {% block body %}{% endblock %}
+    {% block body %}{% endblock %}
 
-            <footer>
-                <p><a href="http://itppyweb.herokuapp.com/notes/week_5">ITP DWD Fall 2013</a> | <a href="https://github.com/johnschimmel/ITP-Python-Databases-Week5">See Code on Github</a></p>
-                
-            </footer>
+    <footer>
+    <br>
+    <p><a href="http://young-bayou-3284.herokuapp.com/">Go Back To The VENTHOLE</a></p><a href="/data/ideas">Would you like some JSON?</a>
 
-        </div> <!-- /container -->
+    </footer>
+
+</div> <!-- /container -->
 
 
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
-        {% block scripts %}{% endblock %}
+{% block scripts %}{% endblock %}
 
-    </body>
+</body>
 </html>

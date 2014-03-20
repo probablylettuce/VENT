@@ -9,16 +9,16 @@
 		<form method="POST" role="form">
 			{{ form.csrf_token }}
 
-			<legend><h3>Share Your Ideas</h3></legend>
+			<legend><h3>What's going on? Let it out.</h3></legend>
 
 			{% if form.errors %}
-			    <ul class="errors">
-			        {% for field_name, field_errors in form.errors|dictsort if field_errors %}
-			            {% for error in field_errors %}
-			                <li>{{ form[field_name].label }}: {{ error }}</li>
-			            {% endfor %}
-			        {% endfor %}
-			    </ul>
+			<ul class="errors">
+				{% for field_name, field_errors in form.errors|dictsort if field_errors %}
+				{% for error in field_errors %}
+				<li>{{ form[field_name].label }}: {{ error }}</li>
+				{% endfor %}
+				{% endfor %}
+			</ul>
 			{% endif %}
 
 			<div class="form-group">
@@ -32,34 +32,71 @@
 				<!-- 
 				<label for="title">Project Title</label>
 				<input type="text" id="title" name="title" class="form-control">
-				-->
-			</div>
-			
-			<div class="form-group">
-				{{ form.idea.label() }}
-				{{ form.idea(class='form-control') }}
+			-->
+		</div>
+
+		<div class="form-group">
+			{{ form.idea.label() }}
+			{{ form.idea(class='form-control') }}
 				<!-- <label for="idea">Idea description</label>
 				<textarea name="idea" id="idea" class="form-control"></textarea>
-				-->
+			-->
+		</div>
+
+		<label>TAG YOUR VENT</label>
+		<br>
+<!-- 			<select class=".control-group.info"  id=“categories” name=“categories >
+
+				<option value="PEOPLE">PEOPLE</option>
+				<option value="NYC">NYC</option>
+				<option value="THE WAY THINGS ARE">THE WAY THINGS ARE</option>
+				<option value="SHIT'S FUCKED UP AND BULLSHIT">SHIT'S FUCKED UP AND BULLSHIT</option>
+
+			</select> -->
+
+			<!-- <p class="help-block">Select as many as you need.</p> -->
+			<!-- {# comment - loop through categories and create checkboxes #} -->
+			
+
+
+			<!-- <select class=".control-group.info"  id=“categories” name=“categories >
+				{% for c in categories|sort %}
+
+				<option value="{{ c|replace(" ","_") }}" name="{{ c|replace(" ","_") }}" > 
+				
+					  {{ c|replace(" ","_") }}	
+				 
+				 </option>
+				
+				{% endfor %}
+			</select> -->
+			 <div class="form-group">
+          <select name=“categories” id =“categories” class="form-control">
+            {% for c in categories|sort %}
+
+          
+                <option value=“{{c}}”>{{ c|replace("_"," ")}} </option>
+
+           
+            {% endfor %}
+      </select>
+</div>
+
+			<div class="form-group">
+				<select name=“categories” id =“categories” class="form-control">
+					{% for c in categories|sort %}
+
+					<option value=“{{c}}”>{{ c|replace("_"," ")}} </option>
+
+
+					{% endfor %}
+				</select>
 			</div>
 
-			<label>Category</label>
-			<p class="help-block">Select as many as you need.</p>
-			{# comment - loop through categories and create checkboxes #}
-			{% for c in categories|sort %}
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" \
-						name="categories" 
-						value="{{ c|replace(" ","_") }}" {% if c|replace(" ","_") in form.categories.data %}checked=checked{% endif %}
-					> {{ c|title }}
-				</label>
-			</div>
-			{% endfor %}
 
 
 
-			<button type="submit" class="btn btn-primary">Add Idea</button>
+			<button type="submit" class="btn btn-primary" name = "categories" >GET IT OUT OF YOU</button>
 		</form>
 	</div>
 
