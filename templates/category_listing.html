@@ -7,7 +7,7 @@
 
 	<!-- left column -->
 	<div class="span6">
-		<h3>Ideas: {{ current_category.get('name')|title }}</h3>
+		<h3>VENTS: {{ current_category.get('name')|title }}</h3>
 		
 		{% for idea in ideas %}
 			<h4><a href="/ideas/{{idea.id}}">{{ idea.title }}</a></h4>
@@ -31,7 +31,7 @@
 
 		<br><br>
 
-		<a href="/" class="btn btn-large btn-info">Add Your Idea</a>
+		<a href="/" class="btn btn-large btn-info">ADD ANOTHER VENT</a>
 	</div>
 
 	

@@ -11,7 +11,7 @@
 		<p>
 	
 			
-			(<a href="/data/ideas/{{idea.id}}">JSON</a>)  
+			<!-- (<a href="/data/ideas/{{idea.id}}">JSON</a>)   -->
 
 		</p>
 		<hr>
@@ -34,11 +34,11 @@
 			<!-- DISPLAY COMMENTS -->
 			<div class="col-md-7">
 				{% for comment in idea.comments %}
-				<div class="comment">
+				<div class="comment" >
 					
 					÷
 					<!-- PUT iFRAME HERE -->
-					<iframe src="http://{{ comment.comment }}" sandbox="" width="600" height="200" scrolling="no">
+					<iframe src="http://{{ comment.comment }}" sandbox="" width="500" height="100" scrolling="auto">
   <p>Your browser does not support iframes.</p>
 </iframe>
 					<p><small>{{ comment.timestamp.strftime("%a %m/%d %I:%M%p ") }}</small></p>
