@@ -25,7 +25,7 @@ db = MongoEngine(app) # connect MongoEngine with Flask App
 import models
 
 # hardcoded categories for the checkboxes on the form
-categories = ['PEOPLE', 'NYC', 'THE WAY THINGS ARE THINGS', 'SHITS FUCKED UP AND BULLSHIT']
+categories = ['PEOPLE','NYC','THE WAY THINGS ARE NOW','SHIT IS FUCKED UP AND BULLSHIT']
 
 # --------- Routes ----------
 # this is our main pagex
