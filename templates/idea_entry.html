@@ -17,11 +17,14 @@
 		<hr>
 		<p>{{ idea.idea }}</p>
 		<p>
-			<ul>
+		  
+		    {{ idea.categories|replace("_"," ") }}
+			<!-- <ol>
 			{% for c in idea.categories %}
-			<li>{{ c|replace("_"," ") }}</li>
-			{% endfor %}
-			</ul>
+			<li>{{ c }}</li> -->
+			<!-- <li>{{ c|replace("_"," ") }}</li>
+			{% endfor %} -->
+			<!-- </ol> -->
 		</p>
 
 		<p>added: {{ idea.timestamp }} | id: {{ idea.id }}</p>
@@ -36,11 +39,13 @@
 				{% for comment in idea.comments %}
 				<div class="comment" >
 					
-					÷
+					
 					<!-- PUT iFRAME HERE -->
-					<iframe src="http://{{ comment.comment }}" sandbox="" width="500" height="100" scrolling="auto">
+					<iframe src="http://{{ comment.comment }}" sandbox="" width="500" height="200" scrolling="auto">
   <p>Your browser does not support iframes.</p>
 </iframe>
+<!-- eventually want to write a python function to handle this url scheme and validate the entry as a url.-->
+<p><a href="http://{{ comment.comment }}">{{ comment.comment }}</a> 
 					<p><small>{{ comment.timestamp.strftime("%a %m/%d %I:%M%p ") }}</small></p>
 				</div>
 				
@@ -59,8 +64,8 @@
   
   
 					<label for="comment">Paste url here</label> -->
-					<textarea cols="70" rows="1" id="comment" name="comment" placeholder="PASTE URL HERE. WWW only. Other comments will not show up."></textarea>
-					
+					<textarea cols="50" rows="2" id="comment" name="comment" placeholder="PASTE URL HERE. WWW only. Other comments will not show up."></textarea>
+					<br>
 					<label>
 					<button type="submit" class="btn btn-success">Comment</button>
 					</label>

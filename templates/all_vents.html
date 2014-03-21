@@ -11,7 +11,7 @@
 		
 		
 		
-		{% for idea in ideas %}
+		{% for idea in ideas | sort(attribute="timestamp", reverse=True) %}
 			<h4>
 				<a href="/ideas/{{ idea.id }}">{{ idea.title }}</a>
 			</h4>
