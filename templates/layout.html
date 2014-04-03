@@ -1,49 +1,184 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
+    <!--   <title></title> -->
     <meta name="description" content="A PLACE WHERE NYERS CAN AIR OUT THEIR THOUGHTS">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <script type="text/javascript" src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> -->
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">-->
+
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/jumbotron-narrow.css">
+
+    <!--  <link rel="stylesheet" href="../static/css/ventmain.css"> -->
+    <!--<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>-->
 
     <!-- Get Font from Google http://www.google.com/webfonts -->
-    <link href='http://fonts.googleapis.com/css?family=Peralta' rel='stylesheet' type='text/css'>
-
+    <!-- <link href='http://fonts.googleapis.com/css?family=Peralta' rel='stylesheet' type='text/css'> -->
+    
     {% block styles %}{% endblock %}
 
 </head>
+
 <body>
-   <!-- put nav menu here -->
 
-   <div class="container">
+<!--
 
-   <h1>VENT NY</h1> 
-    <hr>
+ Fixed navbar 
 
-    {% block body %}{% endblock %}
-
-    <footer>
-    <br>
-    <br>
-    <p><a href="/">Go Back To The VENTHOLE</a></p><font size=-3><a href="/data/ideas">Would you like some JSON?</a>
-
-    </footer>
-
-</div> <!-- /container -->
+-->
 
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
-{% block scripts %}{% endblock %}
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" >
+       <div class="navbar navbar-inverse">
+        <div class="navbar-header">
+
+           <!--  <a class="navbar-brand" href="#">
+
+                Project name
+
+            </a> -->
+        </div>
+        <!-- <div class="navbar-collapse collapse"> -->
+        <ul class="nav navbar-nav pull-right">
+            <!-- <li class="active"> -->
+            <li class="">
+                <a href="#">
+
+                    HOME
+
+                </a>
+            </li>
+            <li class="">
+                <a href="#about">
+
+                    POST
+
+                </a>
+            </li>
+            <li>
+                <a href="#contact">
+
+                    ABOUT
+
+                </a>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+
+                    SORT BY CATEGORY
+
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">
+
+                            NYC
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+
+                            PEOPLE
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+
+                            THE WAY THINGS ARE NOW
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+
+                            SHIT IS FUCKED UP AND BULLSHIT
+
+                        </a>
+                    </li>
+                </ul>
+            </li>
+                <form class="navbar-search">
+    <input type="text" class="search-query" placeholder="Search">
+    </form>
+            
+        <!--
+
+        /.nav-collapse 
+
+    -->
+</div>
+
+</div>
+<!-- </div>
+</div> -->
+
+<!-- MIMI STUFF -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="jumbotron"> <h1> What up fluid</h1></div>
+        </div>
+    </div>
+
+    <div class="col-md-2 col-md-offset-8">
+       <a href="/">Back To The VENTS</a> 
+   </div>
+</div>
+
+<div class="row">
+    <div class="fixed">
+        <div class="col-md-3">
+            <h2>this is where the post form will float</h2></div>
+        </div>
+
+        <div class="col-md-2 col-md-offset-9">
+            <h2>this is where the Comment Form will go, but on the idea_entry page</h2>
+        </div>
+
+
+
+
+        <!-- <div class = "burger-well"> -->
+
+        <div class="col-md-6 col-md-pull-3">
+            <div class="bucket-posts">
+                {% block body %}{% endblock %}
+                <!-- <footer> -->
+                <br>
+                <br>
+                <div class="footer">
+                    <p><!-- <a href="/">Go Back To The VENTHOLE</a></p><font size=-3> --><a href="/data/ideas">Would you like some JSON?</a>
+                </div>
+                <!-- </footer> -->
+                <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+                <!-- Latest compiled and minified JavaScript -->
+                <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+                {% block scripts %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</div>
+
+
+
+</div>
+<!-- MIMI STUFF ENDS -->
+
+
+
+
 
 </body>
 </html>
