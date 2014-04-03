@@ -34,9 +34,9 @@ categories = ['PEOPLE','NYC','THE_WAY_THINGS_ARE_NOW','SHIT_IS_FUCKED_UP_AND_BUL
 def index():
 	# render the template
 	templateData = {
-		'ideas' : models.Idea.objects(),
-		'categories' : categories,
-		'form':  models.IdeaForm(request.form)			
+		# 'ideas' : models.Idea.objects(),
+		# 'categories' : categories,
+		# 'form':  models.IdeaForm(request.form)			
 	}	
 
 	return render_template("all_vents.html", **templateData)
