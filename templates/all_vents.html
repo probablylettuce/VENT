@@ -1,77 +1,79 @@
 {% extends "layout.html" %}
 
 {% block body %}
+
+<!-- IF the post form is working, you can delete this
 <div class="jumbotron">
-<font size=+3><a href="/addvent">VENT SOMETHING HERE</a></font>
+	<font size=+3><a href="/addvent">VENT SOMETHING HERE</a></font> -->
 
 
 	<!-- left column -->
 	<!-- <div class="col-md-6"> -->
 	
-		<h3>HERE'S WHAT THEY ARE TALKING ABOUT</h3>
-		
-		
-		
-		{% for idea in ideas | sort(attribute="timestamp", reverse=True) %}
-			<h4>
-				<a href="/ideas/{{ idea.id }}">{{ idea.title }}</a>
-			</h4>
-			
-			<p>
-			
-			<ul>
-				
-				<!-- <li> -->
-					<a href="/category/{{ idea.categories }}">{{ idea.categories|replace("_"," ")}}</a>
-
-				<!-- </li> -->
-					
-			</ul>
-			
-			</p>
-			
-			<hr/>
-		{%endfor%}		
-		
-	</div>
+	<h3>HERE'S WHAT THEY ARE TALKING ABOUT</h3>
 
 
 
-	
+	{% for idea in ideas | sort(attribute="timestamp", reverse=True) %}
+	<h4>
+		<a href="/ideas/{{ idea.id }}">{{ idea.title }}</a>
+	</h4>
 
-		<hr>
+	<p>
+
+		<ul>
+
+			<!-- <li> -->
+			<a href="/category/{{ idea.categories }}">{{ idea.categories|replace("_"," ")}}</a>
+
+			<!-- </li> -->
+
+		</ul>
+
+	</p>
+
+	<hr/>
+	{%endfor%}		
+
+</div>
+
+
+
+
+
+<hr>
 </div>
 <!-- <div class="span2"> -->
 <!-- MAKING THE FLOATING POST FORM OUTSIDE OF THE JUMBOTRON CONTAINTER -->
-<div class="navbar navbar-fixed-top" style="margin-top:300px;">>
+<div class="navbar navbar-fixed-top" style="margin-top:300px;">
 
 
-    <div class="navbar-inner"
-    <div id="submit_form_container" class="col-md-5 well"
+	<div class="navbar-inner">
+		<div id="submit_form_container" class="span4 offset1 well">
 
-	<form method="POST" role="form">
-			{{ form.csrf_token }}
+			<form method="POST" role="form">
+				{{ form.csrf_token }}
 
-			<legend><h3>What's going on? Let it out.</h3></legend>
+				<legend><h3>What's going on? Let it out.</h3></legend>
 
-			{% if form.errors %}
-			<ul class="errors">
-				{% for field_name, field_errors in form.errors|dictsort if field_errors %}
-				{% for error in field_errors %}
-				<li>{{ form[field_name].label }}: {{ error }}</li>
-				{% endfor %}
-				{% endfor %}
-			</ul>
-			{% endif %}
+				{% if form.errors %}
+				<ul class="errors">
+					{% for field_name, field_errors in form.errors|dictsort if field_errors %}
+					{% for error in field_errors %}
+					<li>{{ form[field_name].label }}: {{ error }}</li>
+					{% endfor %}
+					{% endfor %}
+				</ul>
+				{% endif %}
 
-			<div class="form-group">
-				
-				
-			</div>
+				<div class="form-group">
 
-			<div class="form-group">
-				{{ form.title.label() }}
-				{{ form.title(class='form-control', type='text') }}
+
+				</div>
+
+				<div class="form-group">
+					{{ form.title.label() }}
+					{{ form.title(class='form-control', type='text') }}
 				<!-- 
 				<label for="title">Project Title</label>
 				<input type="text" id="title" name="title" class="form-control">
@@ -88,24 +90,26 @@
 
 		<label>TAG YOUR VENT</label>
 		<br>
-			 <div class="form-group">
-          <select name=categories id=categories class="form-control">
-            {% for c in categories|sort %}
+		<div class="form-group">
+			<select name=categories id=categories class="form-control">
+				{% for c in categories|sort %}
 
-          
-                <option value={{c}}>{{ c|replace("_"," ")}} </option>
 
-           
-            {% endfor %}
-      </select>
-      </div>
-</div>
+				<option value={{c}}>{{ c|replace("_"," ")}} </option>
 
+
+				{% endfor %}
+			</select>
+			
 			<button type="submit" class="jumbotron btn" name = "categories" >GET IT OUT OF YOU</button>
-		</form>
-		
+		</div>
+	</div>
 </div>
+	
+	</form>
+
 </div>
+
 
 {% endblock %}
 
