@@ -1,12 +1,55 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<div class="row">
+<div class="jumbotron">
+<font size=+3><a href="/addvent">VENT SOMETHING HERE</a></font>
 
-	<!-- right column -->
-	<div class="col-md-6">
 
-		<form method="POST" role="form">
+	<!-- left column -->
+	<!-- <div class="col-md-6"> -->
+	
+		<h3>HERE'S WHAT THEY ARE TALKING ABOUT</h3>
+		
+		
+		
+		{% for idea in ideas | sort(attribute="timestamp", reverse=True) %}
+			<h4>
+				<a href="/ideas/{{ idea.id }}">{{ idea.title }}</a>
+			</h4>
+			
+			<p>
+			
+			<ul>
+				
+				<!-- <li> -->
+					<a href="/category/{{ idea.categories }}">{{ idea.categories|replace("_"," ")}}</a>
+
+				<!-- </li> -->
+					
+			</ul>
+			
+			</p>
+			
+			<hr/>
+		{%endfor%}		
+		
+	</div>
+
+
+
+	
+
+		<hr>
+</div>
+<!-- <div class="span2"> -->
+<!-- MAKING THE FLOATING POST FORM OUTSIDE OF THE JUMBOTRON CONTAINTER -->
+<div class="navbar navbar-fixed-top" style="margin-top:300px;">>
+
+
+    <div class="navbar-inner"
+    <div id="submit_form_container" class="col-md-5 well"
+
+	<form method="POST" role="form">
 			{{ form.csrf_token }}
 
 			<legend><h3>What's going on? Let it out.</h3></legend>
@@ -45,31 +88,6 @@
 
 		<label>TAG YOUR VENT</label>
 		<br>
-<!-- 			<select class=".control-group.info"  id=“categories” name=“categories >
-
-				<option value="PEOPLE">PEOPLE</option>
-				<option value="NYC">NYC</option>
-				<option value="THE WAY THINGS ARE">THE WAY THINGS ARE</option>
-				<option value="SHIT'S FUCKED UP AND BULLSHIT">SHIT'S FUCKED UP AND BULLSHIT</option>
-
-			</select> -->
-
-			<!-- <p class="help-block">Select as many as you need.</p> -->
-			<!-- {# comment - loop through categories and create checkboxes #} -->
-			
-
-
-			<!-- <select class=".control-group.info"  id=“categories” name=“categories >
-				{% for c in categories|sort %}
-
-				<option value="{{ c|replace(" ","_") }}" name="{{ c|replace(" ","_") }}" > 
-				
-					  {{ c|replace(" ","_") }}	
-				 
-				 </option>
-				
-				{% endfor %}
-			</select> -->
 			 <div class="form-group">
           <select name=categories id=categories class="form-control">
             {% for c in categories|sort %}
@@ -83,19 +101,10 @@
       </div>
 </div>
 
-			
-
-
-
-
 			<button type="submit" class="jumbotron btn" name = "categories" >GET IT OUT OF YOU</button>
 		</form>
-	</div>
-
-
-
-	
-
+		
+</div>
 </div>
 
 {% endblock %}
