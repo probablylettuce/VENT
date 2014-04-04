@@ -6,8 +6,13 @@
 <div class="row">
 
 	<!-- left column -->
+<<<<<<< HEAD
 	<div class="col-md-3">
 		<h1>The VENT: {{ idea.title }}</h1>
+=======
+	<div class="col-md-12">
+		<h2>The VENT: {{ idea.title }}</h2>
+>>>>>>> parent of efc3de7... I've made some bootstrap progress, but WTF?
 		<p>
 	
 			
@@ -27,11 +32,8 @@
 			<!-- </ol> -->
 		</p>
 
-		<p>added: {{ idea.timestamp.strftime("%a %m/%d %I:%M%p ") }} </p>
+		<p>added: {{ idea.timestamp }} | id: {{ idea.id }}</p>
 		
-		<!-- This was in the idea.timestamp
-		| id: {{ idea.id }} -->
-
 		<hr>
 
 		<h3>Comments ( {{ idea.comments|length }} )</h3>
@@ -43,7 +45,7 @@
 				<div class="comment" >
 					
 					
-					<!-- PUT iFRAME HERE & put the series of Python IF statements here to handle the file type of comment submission-->
+					<!-- PUT iFRAME HERE -->
 					<iframe src="http://{{ comment.comment }}" sandbox="" width="500" height="200" scrolling="auto">
   <p>Your browser does not support iframes.</p>
 </iframe>
@@ -55,41 +57,24 @@
 				{% endfor %}
 			</div>
 
-<div class="row">
-        <div class="fixed">
-            <!-- <div class="col-md-3">
-                <h2>this is where the post form will float</h2></div>
-            </div> -->
+			<!-- ADD COMMENT -->
+			<div class="col-md-5">
+			<!-- PUT JS URL RULES HERE -->
 
-            <div class="col-md-3 col-md-offset-10">
-                <!-- <h2>this is where the Comment Form will go, but on the idea_entry page</h2> -->
-            <form method="POST" action="/ideas/{{ idea.id }}/comment">
+				<form method="POST" action="/ideas/{{ idea.id }}/comment">
 					<!-- <label for="name">First Name</label>
 					<input type="text" id="name" name="name"> -->
 					<br>
-
-
 					<!-- <input type="text" name="fname" placeholder="First name"><br>
   
-  					
+  
 					<label for="comment">Paste url here</label> -->
-
-					<textarea cols="50" rows="2" id="comment" name="comment" placeholder="PASTE URL HERE. Delete the http://."></textarea>
+					<textarea cols="50" rows="2" id="comment" name="comment" placeholder="PASTE URL HERE. WWW only. Other comments will not show up."></textarea>
 					<br>
 					<label>
-					<button type="submit" class="btn btn-large btn-success">Comment</button>
+					<button type="submit" class="btn btn-success">Comment</button>
 					</label>
 				</form>
-
-            </div>
-
-			<!-- ADD COMMENT -->
-			<!-- <div class="col-md-5" > -->
-			<!-- PUT JS URL RULES HERE -->
-				<div class="fixed-burger" >
-				
-				</div>
-			</div>			
 			</div>
 		</div>
 		

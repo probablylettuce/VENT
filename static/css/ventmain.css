@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-/*<style>
+<style>
 h1
 {
 background-color:#6495ed;
@@ -20,55 +20,4 @@ background-color:#b0c4de;
 </head>
 
 
-
-h1 {
-  font-size: 72px;
-  line-height: 720px;
-}
-
-/*
-h1
-{
-background-color:#6495ed;
-}
-h3
-{
-/*width:250%;*/
-/*}
-p
-{
-background-color:#f6f6f6;
-}
-div
-{
-}*/
-
-/*a 
-{
-	padding: 0 10px
-	width:250%;
-}
-
-.bucket-posts
-{
-background-color:#b0c4de;
-width:50%;
-margin:0 auto;
-}*/
-
-.fixed.venthole {
-  position: fixed;
-  bottom: 600;
-  right: 10;
-  width: 200px;
-  background-color: black;
-}
-
 </html>
-
-
-
-
-
-
-

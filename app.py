@@ -35,14 +35,13 @@ def index():
 	# render the template
 	templateData = {
 		'ideas' : models.Idea.objects(),
-		'categories' : categories,
-		'form':  models.IdeaForm(request.form)			
+		'categories' : categories			
 	}	
 
 	return render_template("all_vents.html", **templateData)
 
 
-# CAN I ADD ALLVENTS here to apply as a second route?
+
 @app.route("/addvent", methods=['GET','POST'])
 def addvent():
 

@@ -165,7 +165,7 @@ body {
   color: #333333;
   background-color: #ffffff;
 }
-/*This color is the Vent Titles & Categories*/
+
 a {
   color: #0088cc;
   text-decoration: none;
@@ -775,7 +775,7 @@ dd {
 hr {
   margin: 20px 0;
   border: 0;
-  border-top: 0px solid #eeeeee;
+  border-top: 1px solid #eeeeee;
   border-bottom: 1px solid #ffffff;
 }
 
@@ -5772,20 +5772,3 @@ a.badge:hover {
 .affix {
   position: fixed;
 }
-
-.fixed {
-  position: fixed;
-  bottom: 100;
-  right: 300;
-  width: 200px;
-  background-color: white;
-}
-
-.fixed-burger {
-  position: fixed;
-
-right: 60%;
-top: 20%;
-margin-right: -700px;
-}
-
