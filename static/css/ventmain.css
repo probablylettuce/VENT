@@ -66,6 +66,14 @@ margin:0 auto;
 
 </html>
 
+ #fixed-sidebar {
+
+        position: fixed;
+
+        top: 10;    
+
+    }
+
 
 
 

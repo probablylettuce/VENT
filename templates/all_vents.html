@@ -6,11 +6,15 @@
 <div class="jumbotron">
 	<font size=+3><a href="/addvent">VENT SOMETHING HERE</a></font> -->
 
-
+<!-- <div class="navbar navbar-fixed-top" style="margin-top:200px;"> -->
+	<!-- <div class="col-md-4 col-offset-2"> -->
+<h1>HERE'S WHAT THEY ARE TALKING ABOUT</h1>
 	<!-- left column -->
-	<!-- <div class="col-md-6"> -->
+	<div class="container">
+	<div class="row">
+	<div class="col-md-6" align="center">
 	
-	<h3>HERE'S WHAT THEY ARE TALKING ABOUT</h3>
+	
 
 
 
@@ -36,8 +40,10 @@
 	{%endfor%}		
 
 </div>
-
-
+</div>
+</div>
+</div>
+</div>
 
 
 
@@ -45,11 +51,12 @@
 </div>
 <!-- <div class="span2"> -->
 <!-- MAKING THE FLOATING POST FORM OUTSIDE OF THE JUMBOTRON CONTAINTER -->
-<div class="navbar navbar-fixed-top" style="margin-top:300px;">
+<div class="navbar navbar-fixed-top" style="margin-top:200px;">
 
 
-	<div class="navbar-inner">
-		<div id="submit_form_container" class="span4 offset1 well">
+	<!-- <div class="navbar-inner"> -->
+		<div id="submit_form_container" class="span3 push1 well">
+		<div background:black>
 
 			<form method="POST" role="form">
 				{{ form.csrf_token }}
@@ -100,15 +107,16 @@
 
 				{% endfor %}
 			</select>
-			
+
 			<button type="submit" class="jumbotron btn" name = "categories" >GET IT OUT OF YOU</button>
 		</div>
 	</div>
 </div>
-	
+</div>	
+</div>	
 	</form>
 
-</div>
+
 
 
 {% endblock %}
