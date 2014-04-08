@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+/*<!DOCTYPE html>
 <html>
-<head>
+<head>*/
 /*<style>
 h1
 {
@@ -17,7 +17,7 @@ background-color:#b0c4de;
 
 </style>
 /*	*/
-</head>
+/*</head>*/
 
 
 
@@ -56,15 +56,19 @@ width:50%;
 margin:0 auto;
 }*/
 
-.fixed.venthole {
-  position: fixed;
-  bottom: 600;
-  right: 10;
-  width: 200px;
-  background-color: black;
+.whatvents{
+	position: fixed;
 }
 
-</html>
+.venthole {
+  position: fixed;
+  top: 0;
+  right: 10;
+  width: 200px;
+  /*background-color: black;*/
+}
+
+/*</html>*/
 
  #fixed-sidebar {
 

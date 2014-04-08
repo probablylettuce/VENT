@@ -6,44 +6,72 @@
 <div class="jumbotron">
 	<font size=+3><a href="/addvent">VENT SOMETHING HERE</a></font> -->
 
-<!-- <div class="navbar navbar-fixed-top" style="margin-top:200px;"> -->
+	<!-- <div class="navbar navbar-fixed-top" style="margin-top:200px;"> -->
 	<!-- <div class="col-md-4 col-offset-2"> -->
-<h1>HERE'S WHAT THEY ARE TALKING ABOUT</h1>
-	<!-- left column -->
-	<div class="container">
-	<div class="row">
-	<div class="col-md-6" align="center">
-	
-	
+	<!-- <h1>HERE'S WHAT THEY ARE TALKING ABOUT</h1> -->
+
+
+	<!-- <div class="container">
+		<div class="row"> -->
+			<!-- <div class="col-lg-6" align="center"> -->
+
+				<!-- <div class="col-lg-5 col-push-4"> -->
+
+				<!-- <div class="container">
+			<div class="row"> -->
+			
+			<!-- </div>
+		</div> -->
 
 
 
-	{% for idea in ideas | sort(attribute="timestamp", reverse=True) %}
-	<h4>
-		<a href="/ideas/{{ idea.id }}">{{ idea.title }}</a>
-	</h4>
 
-	<p>
 
-		<ul>
 
-			<!-- <li> -->
-			<a href="/category/{{ idea.categories }}">{{ idea.categories|replace("_"," ")}}</a>
+		<!-- left column -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6" align="left">
 
-			<!-- </li> -->
+				<!-- <div class="col-lg-5 col-push-4">
+				<div  class="fixed">
+					<h1>HERE'S WHAT THEY ARE TALKING ABOUT</h1>
+				</div> -->
 
-		</ul>
+			<div class="whatvents">
+					<!-- <div  class="fixed"> -->
+						<h1 style="background-color: white" >HERE'S WHAT WE'RE TALKING ABOUT</h1>
+					<!-- </div> -->
 
-	</p>
+			</div>
 
-	<hr/>
-	{%endfor%}		
 
+				{% for idea in ideas | sort(attribute="timestamp", reverse=True) %}
+				<h4>
+					<a href="/ideas/{{ idea.id }}">{{ idea.title }}</a>
+				</h4>
+
+				<p>
+
+					<ul>
+
+						<!-- <li> -->
+						<a href="/category/{{ idea.categories }}">{{ idea.categories|replace("_"," ")}}</a>
+
+						<!-- </li> -->
+
+					</ul>
+
+				</p>
+
+				<hr/>
+				{%endfor%}		
+
+			</div>
+		</div>
+	</div>
 </div>
-</div>
-</div>
-</div>
-</div>
+
 
 
 
@@ -51,41 +79,40 @@
 </div>
 <!-- <div class="span2"> -->
 <!-- MAKING THE FLOATING POST FORM OUTSIDE OF THE JUMBOTRON CONTAINTER -->
-<div class="navbar navbar-fixed-top" style="margin-top:200px;">
+<!-- <div class="" style="margin-top:200px;"> -->
 
 
-	<!-- <div class="navbar-inner"> -->
-		<div id="submit_form_container" class="span3 push1 well">
-		<div background:black>
+<div class="venthole">
+	<div id="submit_form_container" class="span3 push1 well" style = "margin-top:200px;"> <!-- We added this margin shit -->
 
-			<form method="POST" role="form">
-				{{ form.csrf_token }}
+		<form method="POST" role="form">
+			{{ form.csrf_token }}
 
-				<legend><h3>What's going on? Let it out.</h3></legend>
+			<legend><h3>What's going on? Let it out.</h3></legend>
 
-				{% if form.errors %}
-				<ul class="errors">
-					{% for field_name, field_errors in form.errors|dictsort if field_errors %}
-					{% for error in field_errors %}
-					<li>{{ form[field_name].label }}: {{ error }}</li>
-					{% endfor %}
-					{% endfor %}
-				</ul>
-				{% endif %}
+			{% if form.errors %}
+			<ul class="errors">
+				{% for field_name, field_errors in form.errors|dictsort if field_errors %}
+				{% for error in field_errors %}
+				<li>{{ form[field_name].label }}: {{ error }}</li>
+				{% endfor %}
+				{% endfor %}
+			</ul>
+			{% endif %}
 
-				<div class="form-group">
+			<div class="form-group">
 
 
-				</div>
+			</div>
 
-				<div class="form-group">
-					{{ form.title.label() }}
-					{{ form.title(class='form-control', type='text') }}
+			<div class="form-group">
+				{{ form.title.label() }}
+				{{ form.title(class='form-control', type='text') }}
 				<!-- 
 				<label for="title">Project Title</label>
 				<input type="text" id="title" name="title" class="form-control">
 			-->
-		</div>
+			</div>
 
 		<div class="form-group">
 			{{ form.idea.label() }}
@@ -110,11 +137,11 @@
 
 			<button type="submit" class="jumbotron btn" name = "categories" >GET IT OUT OF YOU</button>
 		</div>
+		</form>
 	</div>
-</div>
+
 </div>	
-</div>	
-	</form>
+
 
 
 

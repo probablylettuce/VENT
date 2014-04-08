@@ -3,21 +3,17 @@
 
 {% block body %}
 
-<div class="row">
-
-	<!-- left column -->
-	<div class="col-md-12">
+<div class="container">
+			<div class="row">
+				<div class="col-md-6" align="center">
 		<h1>The VENT: {{ idea.title }}</h1>
-		<p>
-	
-			
-			<!-- (<a href="/data/ideas/{{idea.id}}">JSON</a>)   -->
+		<!-- <p>
+			(<a href="/data/ideas/{{idea.id}}">JSON</a>)  
 
-		</p>
+		</p> -->
 		<hr>
 		<p>{{ idea.idea }}</p>
 		<p>
-		  
 		    {{ idea.categories|replace("_"," ") }}
 			<!-- <ol>
 			{% for c in idea.categories %}
@@ -26,14 +22,10 @@
 			{% endfor %} -->
 			<!-- </ol> -->
 		</p>
-
 		<p>added: {{ idea.timestamp.strftime("%a %m/%d %I:%M%p ") }} </p>
-		
 		<!-- This was in the idea.timestamp
 		| id: {{ idea.id }} -->
-
 		<hr>
-
 		<h3>Comments ( {{ idea.comments|length }} )</h3>
 		<div class="row">
 
@@ -41,7 +33,6 @@
 			<div class="col-md-7">
 				{% for comment in idea.comments %}
 				<div class="comment" >
-					
 					
 					<!-- PUT iFRAME HERE & put the series of Python IF statements here to handle the file type of comment submission-->
 					<iframe src="http://{{ comment.comment }}" sandbox="" width="500" height="200" scrolling="auto">
@@ -61,7 +52,7 @@
                 <h2>this is where the post form will float</h2></div>
             </div> -->
 
-            <div class="col-md-3 col-md-offset-10">
+            <div class="col-md-3 col-md-pull-2">
                 <!-- <h2>this is where the Comment Form will go, but on the idea_entry page</h2> -->
             <form method="POST" action="/ideas/{{ idea.id }}/comment">
 					<!-- <label for="name">First Name</label>
@@ -86,20 +77,20 @@
 			<!-- ADD COMMENT -->
 			<!-- <div class="col-md-5" > -->
 			<!-- PUT JS URL RULES HERE -->
-				<div class="fixed-burger" >
+				<!-- <div class="fixed-burger" >
 				
-				</div>
+				</div> -->
 			</div>			
 			</div>
-		</div>
+		<!-- </div> -->
 		
 
-	</div>
+	<!-- </div> -->
 
 
 	
 
-</div>
+<!-- </div> -->
 
 {% endblock %}
 
