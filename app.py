@@ -425,24 +425,33 @@ def data_idea(id):
 
 # 99999999999
 # 99999999999
-@app.route("/search")
-def search_display():
-
-	print request.form
+@app.route("/search", methods=['POST','GET'])
+def search():
+	templateData = {}
+	if request.method == 'POST' :
+	# print request.form
 	# get idea by idea_id 
-	try:
-		ideasList = models.Idea.objects(title=request.form.get("title","no title"))
-	except:
-		abort(404)
+		try:
+			query = request.form.get("query")
+			#ideasList = models.Idea.objects(Q(title__icontains=query) | Q(idea__icontains=query)) # doesn't work
+			#ideasList = models.Idea.objects(title__icontains=query)
+			#ideasList = models.Idea.objects(idea__icontains=query)
+			#ideasList.extend(models.Idea.objects())
+			ideasSet1 = set(models.Idea.objects(title__icontains=query))
+			ideasSet2 = set(models.Idea.objects(idea__icontains=query))
+			ideasSet = ideasSet1 | ideasSet2
+		except:
+			abort(404)
 
-	# prepare template data
-	templateData = {
-		'idea' : ideasList[0]
-	}
+		# prepare template data
+		templateData = {
+			'ideas' : ideasSet
+		}	
+		# render and return the template
+		return render_template('search.html', **templateData)
 
-	# render and return the template
-	return render_template('search.html', **templateData)
-
+	else: 
+		return render_template('search_info.html', **templateData)
 
 
 

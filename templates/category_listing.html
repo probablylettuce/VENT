@@ -6,7 +6,7 @@
 <div class="row">
 
 	<!-- left column -->
-	<div class="span6">
+	<div class="col-md-6 col-offset-3">
 		<h3>VENTS: {{ current_category.get('name')|title }}</h3>
 		
 		{% for idea in ideas %}
@@ -21,7 +21,7 @@
 		
 	</div>
 
-	<div class="span6">
+	<div class="col-md-8 col-offset-4">
 		<h3>Categories</h3>
 		<ul>
 		{% for cat in categories %}

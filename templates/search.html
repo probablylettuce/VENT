@@ -3,30 +3,17 @@
 {% block body %}
 
 
-				<!-- {% for idea in ideas | sort(attribute="timestamp", reverse=True) %} -->
-				<!-- <h4>
-					<a href="/search/{{ idea.id }}">{{ idea.title }}</a>
-					YO
+
+
+	
+{% for idea in ideas | sort(attribute="timestamp", reverse=True) %}
+				<h4>
+					<a href="/ideas/{{ idea.id }}">{{ idea.title }}</a>
 				</h4>
 				<hr>
-
-				<p>
-
-					<ul> -->
-
-						<!-- <li> -->
-						<!-- <a href="/category/{{ idea.categories }}">{{ idea.categories|replace("_"," ")}}</a> -->
-
-						<!-- </li> -->
-
-					<!-- </ul>
-
-				</p>
-
-				<hr/> -->
-				<!-- {%endfor%}	 -->	
-
-<h1>{{idea.title}}</h1>
+{% else %}					
+				<h2> No one has vented about that yet. Missing it? Add your own.</h2>	
+{% endfor %}	
 
 
 {% endblock %}

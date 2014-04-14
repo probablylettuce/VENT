@@ -56,6 +56,12 @@ width:50%;
 margin:0 auto;
 }*/
 
+#comment_submit{
+	position: fixed;
+	top: 350px;
+	right: 200px;
+}
+
 .whatvents{
 	position: fixed;
 }

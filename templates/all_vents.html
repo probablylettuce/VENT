@@ -30,19 +30,17 @@
 
 		<!-- left column -->
 		<!-- <div class="container" style="margin-top:50px;"> -->
-		<div class="row">
+	<div class="row">
 		
-			<div class="col-md-3" div id="fixed-sidebar">
+			<div class="col-md-2" div id="fixed-sidebar" style= "margin-bottom:150px margin-left:200px">
 		<!-- Change to "col-md-3" to make column bigger. Alternately, you can hard code by changing the width.-->
 
-
-
 				<!-- <div id="submit-form-container" class="push1 well">  --><!-- We added this margin shit -->
-					<div class="well" style= "margin-top:10px"> 	
+					<div class="well" > 	
 					<form method="POST" role="form">
 						{{ form.csrf_token }}
 
-						<legend><h3>What's going on? Let it out.</h3></legend>
+						<legend><h4>VENT SOMETHING</h4></legend>
 
 						{% if form.errors %}
 						<ul class="errors">
@@ -66,41 +64,43 @@
 				<label for="title">Project Title</label>
 				<input type="text" id="title" name="title" class="form-control">
 			-->
-		</div>
+						</div>
 
-		<div class="form-group">
-			{{ form.idea.label() }}
-			{{ form.idea(class='form-control') }}
-				<!-- <label for="idea">Idea description</label>
-				<textarea name="idea" id="idea" class="form-control"></textarea>
-			-->
-		</div>
+								<div class="form-group">
+									{{ form.idea.label() }}
+									{{ form.idea(class='form-control') }}
+										<!-- <label for="idea">Idea description</label>
+										<textarea name="idea" id="idea" class="form-control"></textarea>
+									-->
+								</div>
 
 		<label>TAG YOUR VENT</label>
-		<br>
-		<div class="form-group">
-			<select name=categories id=categories class="form-control">
-				{% for c in categories|sort %}
+		<!-- <br> -->
+				<div class="form-group">
+					<select name=categories id=categories class="form-control">
+						{% for c in categories|sort %}
 
 
-				<option value={{c}}>{{ c|replace("_"," ")}} </option>
+						<option value={{c}}>{{ c|replace("_"," ")}} </option>
 
 
-				{% endfor %}
-			</select>
-			<hr>
-			<button type="submit" class="btn btn-danger" name = "categories" >GET IT OUT OF YOU</button>
+						{% endfor %}
+					</select>
+					<br>
+					<button type="submit" class="btn btn-danger" name = "categories" >GET IT OUT OF YOU</button>
+				</div>
+				</form>
+
+				</div>
 		</div>
-	</form>
-</div>
-</div>
+	</div>
 
 <!-- Main content --> 
 <div class="col-md-6 col-md-offset-3" style="margin-top:110px">
  <!--Jon: the margin-top value affects where the ideas begin-->
 
 	<h2> 
-		<div class= "headertext" style="background-color: white"> HERE'S WHAT WE'RE TALKING ABOUT</div></h2>
+		<div class= "headertext" style="background-color: white"> STREAM OF VENTS, NEWEST AT THE TOP</div></h2>
 
 				<!-- <div class="col-lg-5 col-push-4">
 				<div  class="fixed">
