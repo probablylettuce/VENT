@@ -16,7 +16,7 @@
 
 		</p> -->
 		<hr>
-		<h3>{{ idea.idea }}</h3>
+		<h3>{{ idea.idea }} ({{ idea.comments|length }})</h3>
 		<p>
 			{{ idea.categories|replace("_"," ") }}
 			<!-- <ol>
@@ -46,11 +46,11 @@
 					<div class="comment" >
 					
 					<!-- PUT iFRAME HERE & put the series of Python IF statements here to handle the file type of comment submission-->
-					<iframe src="http://{{ comment.comment }}" sandbox="" width="700" height="400" scrolling="auto">
+					<iframe src="{{ comment.comment }}" sandbox="" width="700" height="400" scrolling="auto">
 						<p>Your browser does not support iframes.</p>
 					</iframe>
 					<!-- eventually want to write a python function to handle this url scheme and validate the entry as a url.-->
-					<p><a href="http://{{ comment.comment }}">{{ comment.comment }}</a> 
+					<p><a href="{{ comment.comment }}">{{ comment.comment }}</a> 
 						<p><small>{{ comment.timestamp.strftime("%a %m/%d %I:%M%p ") }}</small></p>
 					</div>
 
@@ -83,7 +83,7 @@
 					<!-- <input type="text" name="fname" placeholder="First name"><br>
 					<label for="comment">Paste url here</label> -->
 
-					<textarea cols="50" rows="2" id="comment" name="comment" placeholder="PASTE URL HERE. Delete the http://."></textarea>
+					<input cols="50" type="url" id="comment" name="comment" placeholder="PASTE URL HERE"></textarea>
 					<br>
 						<label>
 							<button type="submit" class="btn btn-large btn-success">Comment</button>
@@ -115,9 +115,13 @@
 	
 
 	<!-- </div> -->
-
 	{% endblock %}
 
 
 	{% block styles %}{% endblock %}
 	{% block scripts %}{% endblock %}
+
+
+
+
+

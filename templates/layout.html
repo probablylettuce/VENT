@@ -52,6 +52,11 @@
                 CONTACT
             </a>
         </li>
+        <li class="">
+            <a href="/addvent">
+                ADD YOUR VENT
+            </a>
+        </li>
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 
@@ -184,6 +189,22 @@
             
 
             <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+            <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
+            <script type="text/javascript">
+                    $(document).ready(function() {
+                        $("input#comment").keyup(function() {
+                            var checkScheme = /^(h|ht|htt|https?|https?:|https?:\/|https?:\/\/)/;
+                            var typing = $(this).val();
+                            //console.log("calling comment URL fixer on " + typing);
+                            if (typing.search(checkScheme) === -1) {
+                                $(this).val("http://" + $(this).val());
+                            }
+                        });
+
+                        // validate the URL
+                        $("form#comment_submit").validate();
+                    });
+                    </script>
             <!-- Latest compiled and minified JavaScript -->
             <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
