@@ -135,8 +135,11 @@ def addvent():
 		idea.title = request.form.get('title','no title')
 		
 		idea.idea = request.form.get('idea','')
-		idea.categories = request.form.get('categories')
-
+		idea.categories = request.form.get('categories') 
+		# should we use getlist instead of get? 
+		#idea.categories = []
+		#for c in request.form.getlist('categories'):
+		#	idea.categories.append_entry(c)
 		
 		idea.save() # save it
 
@@ -184,7 +187,7 @@ def by_category(cat_name):
 	# prepare data for template
 	templateData = {
 		'current_category' : {
-			
+			'id' : cat_name,
 			'name' : cat_name.replace('_','')
 		},
 		'ideas' : ideas,
@@ -459,7 +462,10 @@ def search():
 
 
 
+@app.route('/howto')
+def howto():
 
+	return render_template('howto.html'), 404
 
 
 @app.route('/about')
