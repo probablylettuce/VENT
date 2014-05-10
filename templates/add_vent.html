@@ -6,59 +6,56 @@
 	<!-- right column -->
 	<div class=".col-md-3 .col-push-3" id="advent_well">
 
-				<form method="POST" role="form">
-					{{ form.csrf_token }}
+		<form method="POST" role="form">
+			{{ form.csrf_token }}
 
-					<legend><h3>VENT SOMETHING</h3></legend>
+			<legend><h3>VENT SOMETHING</h3></legend>
 
-					{% if form.errors %}
-					<ul class="errors">
-						{% for field_name, field_errors in form.errors|dictsort if field_errors %}
-						{% for error in field_errors %}
-						<li>{{ form[field_name].label }}: {{ error }}</li>
-						{% endfor %}
-						{% endfor %}
-					</ul>
-					{% endif %}
+			{% if form.errors %}
+			<ul class="errors">
+				{% for field_name, field_errors in form.errors|dictsort if field_errors %}
+				{% for error in field_errors %}
+				<li>{{ form[field_name].label }}: {{ error }}</li>
+				{% endfor %}
+				{% endfor %}
+			</ul>
+			{% endif %}
 
-					<div class="form-group">
-					</div>
+			<div class="form-group">
+			</div>
 
-					<div class="form-group">
-						{{ form.title.label() }}
-						{{ form.title(class='form-control', type='text') }}
-					</div>	
-						<!-- 
-						<label for="title">Project Title</label>
-						<input type="text" id="title" name="title" class="form-control">
-					-->
-					<div class="form-group">
-					{{ form.idea.label() }}
-					{{ form.idea(class='form-control') }}
+			<div class="form-group">
+				{{ form.title.label() }}
+				{{ form.title(class='form-control', type='text') }}
+			</div>	
+			
+			<div class="form-group">
+				{{ form.idea.label() }}
+				{{ form.idea(class='form-control') }}
 						<!-- <label for="idea">Idea description</label>
 						<textarea name="idea" id="idea" class="form-control"></textarea>
 					-->
-					</div>
+				</div>
 
 				<label>TAG YOUR VENT</label>
 				<br>
 
 				<div class="form-group">
-				<select name=categories id=categories class="form-control">
+					<select name=categories id=categories class="form-control">
 						{% for c in categories|sort %}
 
 						<option value={{c}}>{{ c|replace("_"," ")}} </option>
 
 						{% endfor %}
-				</select>
+					</select>
 				</div>
 
-					<button type="submit" class="btn btn-danger" name = "categories" >GET IT OUT OF YOU</button>
-				</form>
-	</div>
+				<button type="submit" class="btn btn-danger" name = "categories" >GET IT OUT OF YOU</button>
+			</form>
+		</div>
 
-	
-</div>
+		
+	</div>
 
 
 	{% endblock %}

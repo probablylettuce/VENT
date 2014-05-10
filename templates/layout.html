@@ -1,36 +1,18 @@
 <!DOCTYPE html>
 
-
-
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!--   <title></title> -->
     <meta name="description" content="A PLACE WHERE NYERS CAN AIR OUT THEIR THOUGHTS">
+    
     <!-- Latest compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> -->
-    <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">-->
     <link rel="stylesheet" href="../static/css/ventmain.css">
     <link rel="stylesheet" href="../static/css/bootstrap3.css">
     <link rel="stylesheet" href="../static/css/jumbotron-narrow.css">
 
-    <!--  <link rel="stylesheet" href="../static/css/ventmain.css"> -->
-    <!--<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>-->
-
-    <!-- Get Font from Google http://www.google.com/webfonts -->
-    <!-- <link href='http://fonts.googleapis.com/css?family=Peralta' rel='stylesheet' type='text/css'> -->
     
     {% block styles %} {% endblock %}
-
-
- <!-- To Change Navbar color -->
-<!-- /*<style>
-.navbar-default {
-background-color: #778899;
-border-color: #E7E7E7;
-}
-</style>*/ -->
 
 
 </head>
@@ -68,156 +50,89 @@ border-color: #E7E7E7;
         </li>
         <li class="">
 
-        <!-- <button type="submit" class="btn btn-danger" name = "categories" href="/addvent" style="margin-top:10px" >VENT HERE</button> -->
-             <!-- <a href="/addvent" class="btn btn-gray"> 
-                ADD YOUR VENT
-             </a>  -->
-  <!--            <a href="/addvent" class="btn btn-danger"> 
-                ADD YOUR VENT
-             </a>  -->
-             <a href="/addvent" class="btn btn-gray" style="color:white;"> 
-                ADD YOUR VENT
-             </a> 
-        </li>
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+         <a href="/addvent" class="btn btn-gray" style="color:white;"> 
+            ADD YOUR VENT
+        </a> 
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 
-                SORT BY CATEGORY
+            SORT BY CATEGORY
 
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="/category/NYC">
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="/category/NYC">
 
-                        NYC
+                    NYC
 
-                    </a>
-                </li>
-                <li>
-                    <a href="/category/PEOPLE">
+                </a>
+            </li>
+            <li>
+                <a href="/category/PEOPLE">
 
-                        PEOPLE
+                    PEOPLE
 
-                    </a>
-                </li>
-                <li>
-                    <a href="/category/THE_WAY_THINGS_ARE_NOW">
+                </a>
+            </li>
+            <li>
+                <a href="/category/THE_WAY_THINGS_ARE_NOW">
 
-                        THE WAY THINGS ARE NOW
+                    THE WAY THINGS ARE NOW
 
-                    </a>
-                </li>
-                <li>
-                    <a href="/category/SHIT_IS_FUCKED_UP_AND_BULLSHIT">
+                </a>
+            </li>
+            <li>
+                <a href="/category/SHIT_IS_FUCKED_UP_AND_BULLSHIT">
 
-                        SHIT IS FUCKED UP AND BULLSHIT
+                    SHIT IS FUCKED UP AND BULLSHIT
 
-                    </a>
-                </li>
-             </ul>
-        </li>
-<!-- action="/search" -->
-        <form method="POST" action = "/search" class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                      <input type="text" name="query" class="form-control" placeholder="Search">
-                  </div>
-                  <!-- <button type="submit" class="btn btn-gray">SearchSubmit</button> -->
-
-                  </form>
-
-       </div>           
-                 <!-- <form class="navbar-search" action = "/search">
-                <input type="search" name = "q" class="search-query" placeholder="Search"> -->
+                </a>
+            </li>
+        </ul>
+    </li>
+    <!-- action="/search" -->
+    <form method="POST" action = "/search" class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" name="query" class="form-control" placeholder="Search">
+      </div>
 
 
-                <!-- MIMI DIDN'T HAVE THIS FORM HERE
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                      <input type="text" method="POST" class="form-control" placeholder="Search">
-                  </div>
-                  <button type="submit" class="btn btn-default">SearchSubmit</button>
-              -->
+  </form>
 
-      <!-- WHAT DO I DO WITH THIS?
-      ideas = models.Idea.objects(title__icontains='sneaker') -->
+</div>           
 
-
-      <!--  </form> -->
-
-        <!--        /.nav-collapse    -->
-
-
-<!-- </div> -->
-
-<!-- WHY DOESN'T THIS IMAGE WORK AND WHY IS IT SQUARE? -->
-
-<!-- 
-   <img  src="static/img/steampipe2.jpg" >  -->
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
             <div class= "fixed-header" align="center">
-            <img src="static/img/steampipe3.jpg" style="margin-top:-50px:">
+                <img src="static/img/steampipe3.jpg" style="margin-top:-50px:">
             </div>
         </div>
     </div>
 </div>
 
-<!-- </div>
-</div> -->
+{% block body %}{% endblock %}
+<!-- <footer> -->
+<br><br><br><br><br>
+<div class = "row footer">
+ <div class = "col-md-6">
+    <div class="footer">
+      <br><br><br><br><br>
 
-<!-- MIMI STUFF -->
-
-<!-- <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="jumbotron"> <h1> What up fluid</h1></div>
-        </div>
-    </div> -->
-<!-- 
-    <div class="col-md-2 col-md-offset-8">
-       <a href="/">Back To The VENTS</a> 
-   </div>
-</div> -->
-
-<!-- <div class="row">
-    <div class="fixed">
-        <div class="col-md-3">
-            <h2>this is where the post form will float</h2></div>
-        </div>
-
-        <div class="col-md-2 col-md-offset-9">
-            <h2>this is where the Comment Form will go, but on the idea_entry page</h2>
-        </div> -->
+  </div>
 
 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-
-        <!-- <div class = "burger-well"> -->
-
-        <!--       <div class="col-md-12"> -->
-        
-        {% block body %}{% endblock %}
-        <!-- <footer> -->
-        <br><br><br><br><br>
-        <div class = "row footer">
-             <div class = "col-md-6">
-            <div class="footer">
-              <br><br><br><br><br>
-                <p><!-- <a href="/">Go Back To The VENTHOLE</a></p><font size=-3> --><a href="/data/ideas">Would you like some JSON?</a>
-            </div>
-            
-
-            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-            <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
-            <script type="text/javascript">
-                    $(document).ready(function() {
-                        $("input#comment").keyup(function() {
-                            var checkScheme = /^(h|ht|htt|https?|https?:|https?:\/|https?:\/\/)/;
-                            var typing = $(this).val();
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $("input#comment").keyup(function() {
+            var checkScheme = /^(h|ht|htt|https?|https?:|https?:\/|https?:\/\/)/;
+            var typing = $(this).val();
                             //console.log("calling comment URL fixer on " + typing);
                             if (typing.search(checkScheme) === -1) {
                                 $(this).val("http://" + $(this).val());
@@ -227,24 +142,20 @@ border-color: #E7E7E7;
                         // validate the URL
                         $("form#comment_submit").validate();
                     });
-                    </script>
-            <!-- Latest compiled and minified JavaScript -->
-            <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
-            {% block scripts %}{% endblock %}
-        <!-- </div> -->
-            </div>
-        </div>
-<!-- </div>
+{% block scripts %}{% endblock %}
 
-
-
-</div> -->
-<!-- MIMI STUFF ENDS -->
+</div>
+</div>
 
 
 
 
+<!-- Richie.Siegel == godlike
+    http://seersuckermag.com -->
 
 </body>
 </html>

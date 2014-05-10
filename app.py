@@ -66,58 +66,7 @@ def index():
 
 		return render_template("all_vents.html", **templateData)
 
-# TRYING THIS OUT
-# TRYING THIS OUT
-# TRYING THIS OUT
-# @app.route("/all_vents", methods=['GET','POST'])
-# def addvent():
 
-# 	idea_form = models.IdeaForm(request.form)
-
-# 	# if form was submitted and it is valid...
-# 	if request.method == "POST" and idea_form.validate():
-	
-# 		# if request.form['submit'] =="Test":
-# 		# get form data - create new idea
-# 		idea = models.Idea()
-		
-# 		idea.title = request.form.get('title','no title')
-		
-# 		idea.idea = request.form.get('idea','')
-# 		idea.categories = request.form.get('categories')
-
-		
-# 		idea.save() # save it
-
-# 		# redirect to the new idea page
-# 		#return redirect('/ideas/%s' % idea.slug)
-# 		return redirect('/')
-
-# 	else:
-
-# 		# for form management, checkboxes are weird (in wtforms)
-# 		# prepare checklist items for form
-# 		# you'll need to take the form checkboxes submitted
-# 		# and idea_form.categories list needs to be populated.
-# 		if request.method=="POST" and request.form.getlist('categories'):
-# 			for c in request.form.getlist('categories'):
-# 				idea_form.categories.append_entry(c)
-
-
-# 		# render the template
-# 		templateData = {
-# 			'ideas' : models.Idea.objects(),
-# 			'categories' : categories,
-# 			'form' : idea_form
-# 		}
-		
-# 		# app.logger.debug(templateData)
-
-# 		return render_template("add_vent.html", **templateData)
-# ENDING THIS TRY HERE
-
-
-# CAN I ADD ALLVENTS here to apply as a second route?
 @app.route("/addvent", methods=['GET','POST'])
 def addvent():
 
@@ -135,24 +84,14 @@ def addvent():
 		idea.title = request.form.get('title','no title')
 		
 		idea.idea = request.form.get('idea','')
-		idea.categories = request.form.get('categories') 
-		# should we use getlist instead of get? 
-		#idea.categories = []
-		#for c in request.form.getlist('categories'):
-		#	idea.categories.append_entry(c)
-		
+		idea.categories = request.form.get('categories') 		
 		idea.save() # save it
 
 		# redirect to the new idea page
-		#return redirect('/ideas/%s' % idea.slug)
 		return redirect('/')
 
 	else:
 
-		# for form management, checkboxes are weird (in wtforms)
-		# prepare checklist items for form
-		# you'll need to take the form checkboxes submitted
-		# and idea_form.categories list needs to be populated.
 		if request.method=="POST" and request.form.getlist('categories'):
 			for c in request.form.getlist('categories'):
 				idea_form.categories.append_entry(c)
@@ -370,64 +309,6 @@ def data_idea(id):
 		return jsonify(error)
 
 
-
-
-
-#SEARCH FUNCTION APP
-# @app.route('/search', methods=['GET','POST'])
-# def search():
-
-	# Put this below 'try:' - ideas = models.Idea.objects(title__icontains='')
-# This was lifted from data_idea app.route //this was on line 401 return jsonify(data)
-
-# 999999999999999999999999999
-# 999999999999999999999999999
-
-
-# @app.route('/search', methods=['GET','POST'])
-# def search(user_search):
-
-
-
-
-# 	try:
-		
-# 		ideas = models.Idea.objects(title__icontains=request.form.get('dummy'))
-		
-# 		if ideas:
-# 			tmpIdea = ideaToDict(idea)
-			
-# 			# prepare dictionary for JSON return
-# 			data = {
-# 				'status' : 'OK',
-# 				'idea' : tmpIdea
-# 			}
-
-# 			# jsonify (imported from Flask above)
-# 			# will convert 'data' dictionary and set mime type to 'application/json'
-			
-# 			# render the template
-# 		templateData = {
-# 			'ideas' : models.Idea.objects()
-# 			#,
-# 			# 'categories' : categories,
-# 			# 'form' : idea_form
-# 		}
-		
-# 		# app.logger.debug(templateData)
-
-# 		return render_template("search.html", **templateData)
-
-# 			# return redirect('/search/%s' % idea.id)
-# 	except:
-# 		error = {
-# 			'status' : 'error',
-# 			'msg' : 'unable to retrieve ideas'
-# 		}
-# 		return jsonify(error)
-
-# 99999999999
-# 99999999999
 @app.route("/search", methods=['POST','GET'])
 def search():
 	templateData = {}

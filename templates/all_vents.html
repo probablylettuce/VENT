@@ -7,34 +7,6 @@ a:link {
 	color: black;
 }
 </style>
-<!-- IF the post form is working, you can delete this
-<div class="jumbotron">
-	<font size=+3><a href="/addvent">VENT SOMETHING HERE</a></font> -->
-
-	<!-- <div class="navbar navbar-fixed-top" style="margin-top:200px;"> -->
-	<!-- <div class="col-md-4 col-offset-2"> -->
-	<!-- <h1>HERE'S WHAT THEY ARE TALKING ABOUT</h1> -->
-
-
-	<!-- <div class="container">
-	<div class="row"> -->
-		<!-- <div class="col-lg-6" align="center"> -->
-
-		<!-- <div class="col-lg-5 col-push-4"> -->
-
-				<!-- <div class="container">
-				<div class="row"> -->
-
-			<!-- </div>
-		</div> -->
-
-
-
-
-
-
-		<!-- left column -->
-		<!-- <div class="container" style="margin-top:50px;"> -->
 	
 
 <!-- Main content --> 
@@ -44,20 +16,6 @@ a:link {
 	<h2> 
 		<div class= "headertext" style="background-color: white"> PEOPLE ARE VENTING ABOUT...</div></h2>
 		<br><br>
-
-				<!-- <div class="col-lg-5 col-push-4">
-				<div  class="fixed">
-					<h1>HERE'S WHAT THEY ARE TALKING ABOUT</h1>
-				</div> -->
-
-
-
-				<!-- 	<div class="whatvents"> -->
-				<!-- <div  class="fixed"> -->
-				<!-- <h1 style="background-color: white" >HERE'S WHAT WE'RE TALKING ABOUT</h1> -->
-				<!-- </div> -->
-
-				<!-- 	</div> -->
 
 
 				{% for idea in ideas | sort(attribute="timestamp", reverse=True) %}
@@ -73,16 +31,7 @@ a:link {
 			</div>
 
 		</div>
-<!-- 	</div>
-</div> -->
 
-
-
-
-<!-- <hr>
-</div>
--->
-<!-- MAKING THE FLOATING POST FORM OUTSIDE OF THE JUMBOTRON CONTAINTER -->
 
 {% endblock %}
 

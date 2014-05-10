@@ -11,20 +11,12 @@
 	<div class="row">
 		<div class="col-md-12" align="left">
 			<h2>{{ idea.title }}</h2>
-		<!-- <p>
-			(<a href="/data/ideas/{{idea.id}}">JSON</a>)  
-
-		</p> -->
+		
 		<hr>
 		<h3>{{ idea.idea }} ({{ idea.comments|length }})</h3>
 		<p>
 			{{ idea.categories|replace("_"," ") }}
-			<!-- <ol>
-			{% for c in idea.categories %}
-			<li>{{ c }}</li> -->
-			<!-- <li>{{ c|replace("_"," ") }}</li>
-			{% endfor %} -->
-			<!-- </ol> -->
+			
 		</p>
 		<p>added: {{ idea.timestamp.strftime("%a %m/%d %I:%M%p ") }} </p>
 		<!-- This was in the idea.timestamp
@@ -49,7 +41,7 @@
 					<iframe src="{{ comment.comment }}" sandbox="" width="700" height="400" scrolling="auto">
 						<p>Your browser does not support iframes.</p>
 					</iframe>
-					<!-- eventually want to write a python function to handle this url scheme and validate the entry as a url.-->
+				
 					<p><a href="{{ comment.comment }}">{{ comment.comment }}</a> 
 						<p><small>{{ comment.timestamp.strftime("%a %m/%d %I:%M%p ") }}</small></p>
 					</div>
@@ -60,22 +52,9 @@
 
 
 <!-- 			TO ADD A COMMENT -->
-
-
 			<div class="row">
-					<!-- <div class="fixed"> --> <!-- OR THIS? div id="fixed-sidebar" -->
-            <!-- <div class="col-md-3">
-                <h2>this is where the post form will float</h2></div>
-            </div> -->		
-
           	<div class="col-md-3 col-md-offset-8" >
           
-        	
-
-
-         <!--  <div class="fixed"> -->
-            	<!--  <div class="col-md-3 col-md-offset-6"> -->
-            	<!-- <h2>this is where the Comment Form will go, but on the idea_entry page</h2> -->
             		<form method="POST" action="/ideas/{{ idea.id }}/comment" id="comment_submit">
 					<!-- <label for="name">First Name</label>
 					<input type="text" id="name" name="name"> -->
@@ -95,26 +74,6 @@
 
 </div>	
 
-
-
-
-			<!-- ADD COMMENT -->
-			<!-- <div class="col-md-5" > -->
-			<!-- PUT JS URL RULES HERE -->
-				<!-- <div class="fixed-burger" >
-				
-			</div> -->
-		<!-- </div>			
-</div> -->
-	<!-- </div> -->
-
-
-	<!-- </div> -->
-
-
-	
-
-	<!-- </div> -->
 	{% endblock %}
 
 
