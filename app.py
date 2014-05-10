@@ -94,7 +94,13 @@ def addvent():
 
 		if request.method=="POST" and request.form.getlist('categories'):
 			for c in request.form.getlist('categories'):
-				idea_form.categories.append_entry(c)
+					try: 
+						idea_form.categories.append_entry(c)
+
+					except: 
+						abort(404)
+
+					idea_form.categories.append_entry(c)
 
 
 		# render the template
